@@ -115,7 +115,7 @@ img {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1120px;
+  max-width: 100%;
   margin-inline: 1.5rem;
 }
 
@@ -222,8 +222,120 @@ img {
 
 
 /*=============== HOME ===============*/
+.home{
+  position: relative;
+}
+.home__container{
+  position: relative;
+  padding-top: 2rem;
+  row-gap: 3rem;
+}
+.home__greeting{
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-regular);
+  color: var(--first-color);
+}
 
+.home__name{
+  font-size: var(--bigger-font-size);
+}
 
+.home__image{
+  position: relative;
+  display: grid;
+  overflow-y: clip;
+}
+
+.home__image .blob-animate{
+  width: 180px;
+  height: 180px;
+  bottom: 0;
+  justify-self: center;
+}
+.home__perfil{
+  width: 450px;
+  justify-self: center;
+}
+
+.home__shadow, .home__info, .home__social, .home__cv{
+  position: absolute;
+}
+.home__shadow{
+  width: 320px;  
+  height: 200px;
+  bottom: 1rem;
+  z-index: 1; 
+  background: linear-gradient(180deg, hsla(240, 100%, 2%, 0) 60%, hsl(240, 100%, 2%) 85%);
+}
+.home__info{
+  z-index: 2;
+  bottom: -1rem;
+  justify-self: center;
+}
+
+.home__split{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-regular);
+  color: var(--first-color);
+}
+.home__profrssion-1, .home__profession-2{
+  font-size: var(--bigger-font-size);
+  text-align: center;
+  overflow: hidden;
+}
+.home__profrssion-1{
+  position: relative;
+  color: var(--first-color);
+}
+.home__profrssion-1::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,hsl(0,0%,0%) 10%, hsla(0,0%,0%,0) 60%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.home__profession-2{
+  transform: translateY(-1rem);
+}
+.home__social{
+  z-index: 2;
+  left: 0;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: .75rem;
+}
+.home__social-link{
+  color: var(--title-color);
+  font-size: 1.25rem;
+  transition: transform .4s, color .4s;
+}
+
+.home__social-link:hover{
+  color: var(--first-color);
+  transform: translateX(.25rem);
+}
+.home__cv{
+  z-index: 2;
+  right: -1rem;
+  bottom: 2.5rem;
+  rotate: -90deg;
+  color: var(--text-color-light);
+  font: var(--font-medium) var(--small-font-size) var(--second-font);
+  display: flex;
+  align-items: center;
+  column-gap: .5rem;
+  transition: color .4s;
+}
+
+.home__cv i{
+  font-size: 1rem;
+}
+.home__cv:hover{
+  color:var(--first-color);
+}
 /*=============== BUTTON ===============*/
 
 
@@ -275,15 +387,36 @@ img {
   .container{
     margin-inline: 1rem;
   }
+
+  .blob,
+  .home__image .blob-animate{
+    width: 220px;
+    height: 220px;
+  }
+
+
 }
 
 /* For medium devices */
+@media screen and (min-width:540px){
+  .home__container{
+    width: 460px;
+    margin-inline: auto;
+  }
+  
+}
 
+@media screen and (min-width: 768px){
+  .home__container{
+    width: 600px;
+  }
+}
 
 /* For large devices */
 @media screen and (min-width:1150px){
   .container{
     margin-inline: auto;
+    padding-inline: 3rem;
   }
   .nav{
     height: calc(var(--header-height)+2rem);
@@ -296,6 +429,58 @@ img {
     flex-direction: row;
     column-gap: 5.5rem;
   }
+
+  .home__container{
+    width: initial;
+    padding-top: 3rem;
+  }
+  .home__perfil{
+    width: 600px;
+  }
+  .home__image .blob-animate{
+    width: 250px;
+    height: 250px;
+    bottom: 2rem;
+    filter: blur(50px);
+  }
+  .home__shadow{
+    width: 700px;
+    height: 700px;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    background: linear-gradient(180deg, hsla(240, 100%, 2%, 0) 60%, hsl(240, 100%, 2%) 95%);
+  }
+  .home__data{
+    position: absolute;
+    top: 12rem;
+    left: 6rem;
+    z-index: 2;
+  }
+
+  .home__info{
+    position: absolute;
+    top: 65%;
+    right: 6rem;
+    transform: translateY(-50%);
+}
+.home__split{
+  display: block;
+  font-size: var(--h2-font-size);
+  margin-bottom: .5rem;
+}
+
+.home__profrssion-1,
+.home__profrssion-2{
+    font-size: var(--biggest-font-size);
+    line-height: .9;
+}
+.home__social{
+  bottom: 3rem;
+  row-gap: 1.5rem;
+  left: 2rem;
+}
+
 }
 
 /* For 2K resolutions (2048 x 1152, 2048 x 1536) */
