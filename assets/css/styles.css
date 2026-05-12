@@ -154,7 +154,14 @@ img {
   z-index: -1;
   animation: animateBlob 5s linear infinite;
 }
-
+@keyframes animateBlob{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
 /* Blob */
 
 
@@ -173,7 +180,10 @@ img {
   background: linear-gradient(180deg,var(--body-color) 60%,hsla(240, 100%, 2%, 0) 100%);
   z-index: var(--z-fixed);
 }
-
+.header .blob-animate{
+  top: -3rem;
+  left: -3rem;
+}
 .nav{
   display: flex;
   justify-content: space-between;
@@ -261,13 +271,32 @@ img {
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
-
+@media screen and (max-width:320px){
+  .container{
+    margin-inline: 1rem;
+  }
+}
 
 /* For medium devices */
 
 
 /* For large devices */
-
+@media screen and (min-width:1150px){
+  .container{
+    margin-inline: auto;
+  }
+  .nav{
+    height: calc(var(--header-height)+2rem);
+    align-items: center;
+  }
+  .nav__loop{
+    align-self: initial;
+  }
+  .nav__list{
+    flex-direction: row;
+    column-gap: 5.5rem;
+  }
+}
 
 /* For 2K resolutions (2048 x 1152, 2048 x 1536) */
 
